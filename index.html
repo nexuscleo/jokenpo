@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokenpô - Clássico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="https://cdn.pixabay.com/video/2023/07/03/169870-841936961_large.mp4" type="video/mp4">
+    </video>
+    <div id="video-overlay"></div>
+
+    <div class="game-container">
+        <header>
+            <h1 class="game-title">JOKENPÔ</h1>
+            <p class="game-subtitle">Você contra a Inteligência Artificial</p>
+        </header>
+
+        <section class="scoreboard" aria-label="Placar do Jogo">
+            <div class="score-card player-score-card">
+                <span class="score-label">Você</span>
+                <span id="player-score" class="score-value">0</span>
+            </div>
+
+            <div class="vs-badge">VS</div>
+
+            <div class="score-card cpu-score-card">
+                <span class="score-label">CPU</span>
+                <span id="cpu-score" class="score-value">0</span>
+            </div>
+        </section>
+
+        <section class="battle-arena" aria-label="Arena de Combate">
+            <div class="battle-column player-column">
+                <span class="column-title">Sua Jogada</span>
+                <div class="choice-visual" id="player-choice-display">
+                    <span id="player-choice" class="choice-emoji">❔</span>
+                </div>
+            </div>
+
+            <div class="battle-result-container">
+                <p id="result-text" class="result-message">Escolha uma opção abaixo para iniciar a batalha!</p>
+            </div>
+
+            <div class="battle-column cpu-column">
+                <span class="column-title">CPU</span>
+                <div class="choice-visual" id="cpu-choice-display">
+                    <span id="cpu-choice" class="choice-emoji">❔</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="controls-section" aria-label="Opções de Jogada">
+            <p class="section-hint">Selecione o seu movimento:</p>
+            <div class="options-container">
+                <button type="button" class="option-btn" id="btn-pedra" aria-label="Escolher Pedra"
+                    onclick="playHuman('rock')">
+                    <span class="option-emoji">✊</span>
+                    <span class="option-name">Pedra</span>
+                </button>
+
+                <button type="button" class="option-btn" id="btn-papel" aria-label="Escolher Papel"
+                    onclick="playHuman('paper')">
+                    <span class="option-emoji">✋</span>
+                    <span class="option-name">Papel</span>
+                </button>
+                
+                <button type="button" class="option-btn" id="btn-tesoura" aria-label="Escolher Tesoura"
+                    onclick="playHuman('scissors')">
+                    <span class="option-emoji">✌️</span>
+                    <span class="option-name">Tesoura</span>
+                </button>
+
+                <p class="result"></p>
+            </div>
+        </section>
+
+        <footer class="game-footer">
+            <button type="button" id="btn-reset" class="reset-btn" aria-label="Reiniciar Placar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="reset-icon">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+                </svg>
+                Zerar Placar
+            </button>
+        </footer>
+    </div>
+
+    <!-- 
+      💡 MANUAL DE INTEGRAÇÃO COM SEU SCRIPT.JS:
+      
+      Aqui estão os principais IDs de elementos que você pode mapear no seu JavaScript:
+      
+      1. Placar de Pontuação:
+         - Placar do Jogador: document.getElementById('player-score')
+         - Placar da CPU: document.getElementById('cpu-score')
+         
+      2. Ícones da Arena (onde mostra o que cada um jogou):
+         - Arena Jogador: document.getElementById('player-choice')  (altere o innerText para ✊, ✋ ou ✌️)
+         - Arena CPU: document.getElementById('cpu-choice')          (altere o innerText para ✊, ✋ ou ✌️)
+         
+      3. Mensagem de status e resultado:
+         - Mensagem central: document.getElementById('result-text')   (atualize com o vencedor da rodada)
+         
+      4. Botões de ação para clique:
+         - Botão Pedra: document.getElementById('btn-pedra')
+         - Botão Papel: document.getElementById('btn-papel')
+         - Botão Tesoura: document.getElementById('btn-tesoura')
+         - Botão Zerar Placar: document.getElementById('btn-reset')
+         
+      🔥 Dica de Animações (Classes CSS disponíveis para aplicar via JS):
+         - Adicione a classe 'winner-pulse' na coluna do vencedor ('player-column' ou 'cpu-column') para dar um brilho especial na vitória!
+         - Quando o jogo reiniciar ou der empate, remova as classes de animação.
+    -->
+</body>
+
+</html>
