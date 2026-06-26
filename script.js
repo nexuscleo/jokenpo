@@ -7,11 +7,12 @@ const resultText = document.getElementById('result-text');
 const gameContainer = document.querySelector('.game-container');
 */
 
-const result = document.querySelector('.result');
+const result = document.querySelector('.result-message');
 const playerScore = document.querySelector('#player-score');
 const cpuScore = document.querySelector('#cpu-score');
 const playerChoice = document.querySelector('#player-choice');
 const cpuChoice = document.querySelector('#cpu-choice');
+const resetGame = document.querySelector('#reset-game')
 
 // Variaveis Globais
 let humanScore = 0;
@@ -45,7 +46,11 @@ const playTheGame = (human, machine) => {
         cpuScore.textContent = machineScore;
         result.textContent = 'Você perdeu!'
     }
-    
+
     playerChoice.textContent = human;
     cpuChoice.textContent = machine;
+}
+
+const emoji = (humanEmoji, cpuEmoji) => {
+
 }
