@@ -479,6 +479,81 @@ header {
     text-shadow: 0 0 15px var(--accent-draw-glow);
 }
 
+/* Seletor de Modo de Jogo e Sacudida CSS */
+.mode-selector-container {
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 0.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 320px;
+    margin: -0.75rem auto 0 auto;
+    backdrop-filter: blur(10px);
+}
+
+.mode-btn {
+    flex: 1;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+    padding: 0.65rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    outline: none;
+}
+
+.mode-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.mode-btn.active {
+    background: var(--glass-bg-hover);
+    color: var(--accent-player);
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.12);
+    border: 1px solid rgba(0, 242, 254, 0.25);
+}
+
+.mode-btn:focus-visible {
+    box-shadow: 0 0 0 2px var(--accent-player-glow);
+}
+
+/* Animações de sacudir */
+@keyframes shake-left {
+    0% { transform: translateY(0) rotate(0deg); }
+    20% { transform: translateY(-10px) rotate(-15deg); }
+    40% { transform: translateY(0) rotate(15deg); }
+    60% { transform: translateY(-6px) rotate(-10deg); }
+    80% { transform: translateY(0) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes shake-right {
+    0% { transform: translateY(0) rotate(0deg); }
+    20% { transform: translateY(-10px) rotate(15deg); }
+    40% { transform: translateY(0) rotate(-15deg); }
+    60% { transform: translateY(-6px) rotate(10deg); }
+    80% { transform: translateY(0) rotate(-5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.shake-left-animation {
+    animation: shake-left 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.shake-right-animation {
+    animation: shake-right 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
 /* 10. RESPONSIVIDADE (MEDIA QUERIES) */
 @media (max-width: 600px) {
     body {

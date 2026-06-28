@@ -23,26 +23,35 @@
     <div class="game-container">
         <header>
             <h1 class="game-title">JOKENPÔ</h1>
-            <p class="game-subtitle">Você contra a Inteligência Artificial</p>
+            <p class="game-subtitle" id="game-subtitle">Você contra a Inteligência Artificial</p>
         </header>
+
+        <div class="mode-selector-container">
+            <button type="button" class="mode-btn active" id="btn-mode-cpu">
+                <span>🤖 Vs CPU</span>
+            </button>
+            <button type="button" class="mode-btn" id="btn-mode-pvp">
+                <span>👥 2 Jogadores</span>
+            </button>
+        </div>
 
         <section class="scoreboard" aria-label="Placar do Jogo">
             <div class="score-card player-score-card">
-                <span class="score-label">Você</span>
+                <span class="score-label" id="player-label">Você</span>
                 <span id="player-score" class="score-value">0</span>
             </div>
 
             <div class="vs-badge">VS</div>
 
             <div class="score-card cpu-score-card">
-                <span class="score-label">CPU</span>
+                <span class="score-label" id="cpu-label">CPU</span>
                 <span id="cpu-score" class="score-value">0</span>
             </div>
         </section>
 
         <section class="battle-arena" aria-label="Arena de Combate">
             <div class="battle-column player-column">
-                <span class="column-title">Sua Jogada</span>
+                <span class="column-title" id="player-column-title">Sua Jogada</span>
                 <div class="choice-visual" id="player-choice-display">
                     <span id="player-choice" class="choice-emoji">❔</span>
                 </div>
@@ -53,7 +62,7 @@
             </div>
 
             <div class="battle-column cpu-column">
-                <span class="column-title">CPU</span>
+                <span class="column-title" id="cpu-column-title">CPU</span>
                 <div class="choice-visual" id="cpu-choice-display">
                     <span id="cpu-choice" class="choice-emoji">❔</span>
                 </div>
