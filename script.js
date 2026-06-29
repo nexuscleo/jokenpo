@@ -39,6 +39,7 @@ const playerChoice = getElement('#player-choice');
 const cpuChoice = getElement('#cpu-choice');
 const resetGame = getElement('#btn-reset');
 const battleArena = getElement('.battle-arena');
+const currentYear = document.getElementById('currentYear');
 
 // Elementos adicionais para animações, modos de jogo e labels
 const btnModeCpu = getElement('#btn-mode-cpu');
@@ -178,7 +179,7 @@ const applyResultEffects = (resultType) => {
 const updateScoreDisplay = () => {
     // Destructuring para obter os valores de pontuação do estado
     const { mode, cpu, pvp } = state;
-    
+
     if (mode === 'cpu') {
         const { player: cpuPlayerScore, cpu: cpuMachineScore } = cpu;
         if (playerScore) playerScore.textContent = cpuPlayerScore;
@@ -213,7 +214,7 @@ const updateGameModeUI = () => {
         if (cpuLabel) cpuLabel.textContent = 'Jogador 2';
         if (playerColumnTitle) playerColumnTitle.textContent = 'Jogada P1';
         if (cpuColumnTitle) cpuColumnTitle.textContent = 'Jogada P2';
-        
+
         if (currentTurn === 1) {
             if (gameSubtitle) gameSubtitle.textContent = 'Jogador 1: Selecione seu movimento';
             if (result) result.textContent = 'Aguardando Jogador 1...';
@@ -222,7 +223,7 @@ const updateGameModeUI = () => {
             if (result) result.textContent = 'Aguardando Jogador 2...';
         }
     }
-    
+
     if (playerChoice) playerChoice.textContent = '❔';
     if (cpuChoice) cpuChoice.textContent = '❔';
     clearResultEffects();
@@ -292,11 +293,11 @@ const runRoundPvp = (selection) => {
         // Jogador 1 faz sua jogada
         state.p1Choice = selection;
         state.currentTurn = 2;
-        
+
         // Esconder escolha com um cadeado para o Jogador 2 não ver
         if (playerChoice) playerChoice.textContent = '🔒';
         if (cpuChoice) cpuChoice.textContent = '❔';
-        
+
         if (gameSubtitle) gameSubtitle.textContent = 'Jogador 1 já escolheu! Jogador 2: Selecione seu movimento';
         if (result) result.textContent = 'Jogador 1 bloqueado. Vez do Jogador 2!';
     } else {
@@ -383,7 +384,7 @@ const playHuman = (myChoice) => {
 
 const resetGameFunction = () => {
     const { mode } = state;
-    
+
     if (mode === 'cpu') {
         state.cpu = { player: 0, cpu: 0, rounds: 0 };
     } else {
@@ -391,11 +392,11 @@ const resetGameFunction = () => {
         state.p1Choice = null;
         state.currentTurn = 1;
     }
-    
+
     saveToLocalStorage();
     clearResultEffects();
     updateGameModeUI();
-    
+
     console.log(`Jogo resetado no modo: ${mode}!`);
 };
 
@@ -454,4 +455,9 @@ if (typeof module !== 'undefined' && module.exports) {
         CHOICE_EMOJI,
         state
     };
+}
+
+// Atualizar ano dinâmico no rodapé
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
 }

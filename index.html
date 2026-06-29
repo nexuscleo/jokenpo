@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon2.png">
     <title>Jokenpô - Clássico</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +94,7 @@
             </div>
         </section>
 
-        <footer class="game-footer">
+        <div class="game-footer">
             <button type="button" id="btn-reset" class="reset-btn" aria-label="Reiniciar Placar">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
@@ -102,29 +103,16 @@
                 </svg>
                 Zerar Placar
             </button>
-        </footer>
+        </div>
     </div>
 
-    <!-- 
-      💡 MANUAL DE INTEGRAÇÃO COM SEU SCRIPT.JS:
-         
-      2. Ícones da Arena (onde mostra o que cada um jogou):
-         - Arena Jogador: document.getElementById('player-choice')  (altere o innerText para ✊, ✋ ou ✌️)
-         - Arena CPU: document.getElementById('cpu-choice')          (altere o innerText para ✊, ✋ ou ✌️)
-         
-      3. Mensagem de status e resultado:
-         - Mensagem central: document.getElementById('result-text')   (atualize com o vencedor da rodada)
-         
-      4. Botões de ação para clique:
-         - Botão Pedra: document.getElementById('btn-pedra')
-         - Botão Papel: document.getElementById('btn-papel')
-         - Botão Tesoura: document.getElementById('btn-tesoura')
-         - Botão Zerar Placar: document.getElementById('btn-reset')
-         
-      🔥 Dica de Animações (Classes CSS disponíveis para aplicar via JS):
-         - Adicione a classe 'winner-pulse' na coluna do vencedor ('player-column' ou 'cpu-column') para dar um brilho especial na vitória!
-         - Quando o jogo reiniciar ou der empate, remova as classes de animação.
-    -->
+    <footer>
+        <div class="footer-content">
+            <div class="highlight-alt">Nexus<span>Cleo</span></div>
+            <p>&copy; <span id="currentYear"></span> | Cleomar da Silva</p>
+        </div>
+    </footer>
+
 </body>
 
 </html>
